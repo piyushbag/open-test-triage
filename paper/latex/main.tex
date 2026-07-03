@@ -60,7 +60,33 @@ hardware validation, test log analysis, post-silicon debug, benchmark, design re
 
 \section{Problem Statement}
 \label{sec:problem}
-% TODO: heterogeneous logs, schematic PDFs, manual assembly cost (~1 hr/project at scale)
+
+Modern hardware validation produces far more failure evidence than any single review cycle can absorb manually.
+Functional verification surveys consistently rank \emph{debugging} as the largest share of engineer time~\cite{wilson2024verification}.
+Yet the bottleneck is not only root-cause isolation in silicon or on the bench: after tests run, teams must still transform raw logs, database queries, and schematic PDFs into a coherent, reviewer-ready report.
+Recent academic work on EDA log analysis notes that this post-test documentation step still lacks a standard automated approach~\cite{kanagal2025eda}.
+
+We call this the \textbf{failure-to-report gap}.
+Commercial EDA and lab-automation flows automate simulation, pattern execution, and instrument capture, but typically stop before three operations that remain manual in practice:
+\begin{enumerate}
+    \item \textbf{Log reconciliation} --- sorting and classifying hundreds to thousands of heterogeneous validation logs per hardware program, often with inconsistent severity labels and duplicate signatures across runs.
+    \item \textbf{Design-context localization} --- mapping each classified failure to the correct components and regions in multi-page schematic PDFs so reviewers know \emph{where} to look.
+    \item \textbf{Report assembly} --- merging classified failures, localized schematic context, and program metadata into a single structured document suitable for cross-functional design review.
+\end{enumerate}
+
+At portfolio scale, manual assembly dominates calendar time.
+Industry practitioners report on the order of one engineer-hour per program per review cycle when reports are built by hand, repeated across hundreds of active programs, and dominated by search-and-copy rather than analysis~\cite{kanagal2025eda}.
+The cost is super-linear: each new product generation adds log formats, codenames, and schematic revisions, while review deadlines do not scale accordingly.
+
+Existing partial solutions address slices of the pipeline but not the end-to-end path.
+Pre-silicon verification tools focus on coverage, formal properties, and simulation closure~\cite{seshia2010postsi}.
+Knowledge-graph and LLM methods for \emph{textual} test reports target compliance or aerospace board data~\cite{thales2024llmkg}, not the recurring hardware-design review workflow that joins validation logs with schematic artifacts.
+Open diagnostic schemas such as OCP diag-core standardize \emph{what} a test emits~\cite{ocpdiagcore}, but not how failures become reviewer-ready documentation across inconsistent internal metadata.
+
+\textbf{Problem definition.}
+Given a hardware program's validation log corpus and associated schematic PDFs, produce a structured diagnostic report that (i)~classifies failure signatures with reproducible precision/recall, (ii)~links each signature to schematic context, and (iii)~reduces human assembly time from hours to minutes without exposing proprietary design data.
+No public benchmark currently measures this full path.
+HW-Triage-Bench (Section~\ref{sec:benchmark}) and the OpenTestTriage reference pipeline (Section~\ref{sec:pipeline}) are designed to close that measurement and reproducibility gap while keeping the core problem anchored in post-test validation documentation for schematic-centric design review.
 
 \section{Related Work}
 \label{sec:related}
