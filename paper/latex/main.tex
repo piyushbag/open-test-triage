@@ -1,0 +1,96 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{hidelinks}
+
+\begin{document}
+
+\title{HW-Triage-Bench: A Benchmark for Hardware Test Failure-to-Report Automation}
+
+\author{\IEEEauthorblockN{Piyush Jagadish Bag}
+\IEEEauthorblockA{\textit{Test Automation Engineer, Platform Hardware}\\
+Santa Clara, CA, USA\\
+piyushbag4@gmail.com}}
+
+\maketitle
+
+\begin{abstract}
+Hardware validation engineers spend more time debugging and documenting failures than running tests.
+Industry surveys report debugging as the dominant verification activity, and recent academic work notes
+that automated analysis of engineering validation logs still lacks a standard, reproducible approach.
+Commercial electronic design automation flows automate simulation and formal verification but typically
+stop before the post-test step: assembling failure evidence, locating affected components in schematics,
+and producing a reviewer-ready report remains manual across large program portfolios.
+
+We introduce \textbf{HW-Triage-Bench}, an open benchmark and reference pipeline for the
+\textbf{failure-to-report} path. Given heterogeneous validation logs and schematic PDFs, systems must
+classify failure signatures, retrieve relevant design context, and emit structured diagnostic summaries
+suitable for design review. We evaluate rule-based, retrieval-augmented, and agentic baselines on
+\textit{N} anonymized projects spanning \textit{M} failure classes, reporting precision and recall on log
+classification and human-judged report usefulness.
+
+We release benchmark tasks, evaluation harness code, and a non-proprietary \textbf{OpenTestTriage}
+reference module integrated with open lab stacks. HW-Triage-Bench establishes a public baseline for a
+gap the field describes as open but rarely measures.
+\end{abstract}
+
+\begin{IEEEkeywords}
+hardware validation, test log analysis, post-silicon debug, benchmark, design review automation
+\end{IEEEkeywords}
+
+\section{Introduction}
+\label{sec:intro}
+% TODO: Wilson 2024 debugging time; Kanagal Berkeley 2025 EDA log gap; gap = failure-to-report
+
+\subsection{Contributions}
+\begin{itemize}
+    \item \textbf{HW-Triage-Bench}, the first open benchmark for validation failure-to-report automation.
+    \item A reference \textbf{OpenTestTriage} pipeline: log classification, schematic localization, report assembly.
+    \item Baseline evaluation across rule-based, retrieval-augmented, and agentic matchers.
+    \item Open harness aligned with OCP diagnostic output schemas.
+\end{itemize}
+
+\section{Problem Statement}
+\label{sec:problem}
+% TODO: heterogeneous logs, schematic PDFs, manual assembly cost (~1 hr/project at scale)
+
+\section{Related Work}
+\label{sec:related}
+% TODO: EDA verification automation, LLM log analysis, Thales test-data KG (arXiv:2408.01700)
+
+\section{HW-Triage-Bench}
+\label{sec:benchmark}
+% TODO: task definition, dataset construction, anonymization protocol, metrics
+
+\section{OpenTestTriage Reference Pipeline}
+\label{sec:pipeline}
+% TODO: tiered fuzzy classification, PDF localization, report template — no proprietary DB names
+
+\section{Evaluation}
+\label{sec:eval}
+% TODO: baselines, F1, report rubric, latency
+
+\section{Threats to Validity}
+\label{sec:threats}
+% TODO: synthetic vs anonymized real logs; generalization across vendors
+
+\section{Conclusion}
+\label{sec:conclusion}
+% TODO: future work: agentic extensions, integration with OpenTAP/labgrid
+
+\section*{Data Availability}
+Benchmark artifacts and evaluation code: \url{https://github.com/piyushbag/open-test-triage}.
+Anonymized dataset DOI: Zenodo TBD.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}
