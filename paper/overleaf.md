@@ -1,21 +1,35 @@
-# Overleaf
+# Overleaf (free tier)
 
-## Project name
+GitHub import is **Overleaf Premium**. Use one of these free paths instead.
 
-`HW-Triage-Bench-Paper`
+## Option A — Upload zip (fastest)
 
-## Import from GitHub (recommended)
+1. [Overleaf](https://www.overleaf.com) → **New Project** → **Upload Project**
+2. Upload [`HW-Triage-Bench-Paper-overleaf.zip`](HW-Triage-Bench-Paper-overleaf.zip)
+3. Rename project to **`HW-Triage-Bench-Paper`**
+4. Menu → Settings → Compiler: **pdfLaTeX** → Recompile
 
-1. Open [Overleaf](https://www.overleaf.com) → **New Project** → **Import from GitHub**
-2. Repository: `piyushbag/open-test-triage`
-3. Set project root to `paper/latex/` (or copy `main.tex` + `references.bib` into project root)
-4. Compiler: **pdfLaTeX**
+## Option B — Blank project + agent upload
 
-Direct link (after GitHub auth in Overleaf): import repo via Overleaf GitHub integration.
+1. **New Project** → **Blank Project** → name **`HW-Triage-Bench-Paper`**
+2. Tell the Cursor agent: *"Overleaf project created"*
+3. Agent pushes `main.tex` and `references.bib` via Overleaf MCP and compiles
 
-## Git mirror
+## Option C — Copy files manually
 
-Edits in Overleaf can sync back via Overleaf Git Bridge; this folder is the canonical git copy until then.
+1. **New Project** → **Blank Project**
+2. Delete default `main.tex` content; paste from [`latex/main.tex`](latex/main.tex)
+3. **New file** → `references.bib` → paste from [`latex/references.bib`](latex/references.bib)
+4. Recompile (pdfLaTeX)
+
+## Not recommended for this paper
+
+| Import type | Why skip |
+|-------------|----------|
+| **GitHub sync** | Premium only |
+| **Markdown / Word** | Loses IEEE LaTeX structure, citations, and conference formatting |
+
+Canonical git source: [github.com/piyushbag/open-test-triage/tree/main/paper/latex](https://github.com/piyushbag/open-test-triage/tree/main/paper/latex)
 
 ## Author block (public)
 
