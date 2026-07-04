@@ -4,8 +4,6 @@ Open research artifact for **hardware test failure-to-report automation**: class
 
 **Author:** Piyush Jagadish Bag · Test Automation Engineer, Platform Hardware · [piyushbag.com](https://piyushbag.com)
 
-**EB-1A hub:** [eb1a-profile](https://github.com/piyushbag/eb1a-profile)
-
 ## Problem
 
 Validation engineers manually assemble design review reports: sort **1,000+ logs per project**, query engineering databases, locate components in schematic PDFs, and format output by hand (**~1 hour per project** at portfolio scale). EDA tools automate simulation and verification but rarely close the loop to **structured post-test documentation**.
