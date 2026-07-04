@@ -2,7 +2,7 @@
 
 Open research artifact for **hardware test failure-to-report automation**: classify validation logs, localize schematic context, and emit reviewer-ready diagnostic reports.
 
-**Author:** Piyush Jagadish Bag · Test Automation Engineer, Platform Hardware · [piyushbag.com](https://piyushbag.com)
+**Author:** Piyush Jagadish Bag · Independent Researcher · [piyushbag.com](https://piyushbag.com)
 
 ## Problem
 
